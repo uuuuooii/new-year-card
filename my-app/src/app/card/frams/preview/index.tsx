@@ -1,6 +1,6 @@
 import React from 'react';
-import * as S from './style';
 import Image from 'next/image';
+import * as S from './style';
 
 const Preview = () => {
   return (
