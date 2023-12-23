@@ -1,1 +1,1 @@
-# new-year-card
+# AI 신년카드
