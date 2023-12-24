@@ -1,13 +1,23 @@
 import React from 'react';
 import Image from 'next/image';
+import ImageLoading from './imageLoading';
 import * as S from './style';
 
-const Preview = () => {
+interface PreviewProps {
+  image: string;
+  isSend: boolean;
+  loadingStep: number;
+}
+
+const Preview = ({ image, isSend, loadingStep }: PreviewProps) => {
   return (
     <S.Section>
       <S.Year>2024</S.Year>
       <S.ImageWrap>
-        <Image src='/previewImage.svg' alt='previewImage' width={250} height={300}></Image>
+        {isSend &&
+          <ImageLoading loadingStep={loadingStep} />
+        }
+        <Image src={image ? image : '/previewImage.svg'} alt='previewImage' width={250} height={300}></Image>
       </S.ImageWrap>
 
       <S.Desc>

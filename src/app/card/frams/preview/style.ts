@@ -7,6 +7,7 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
+  max-width: 350px;
   padding: 20px;
   background-color: #f8f8f8;
 `;

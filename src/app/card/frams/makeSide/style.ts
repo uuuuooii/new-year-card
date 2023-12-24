@@ -12,13 +12,15 @@ export const NumberList = styled.div`
   padding-bottom: 30px;
 `;
 
-export const NumberItem = styled.div`
+export const NumberItem = styled.div<{ isPageNumber: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  background: #ebeff0;
+  width: 24px;
+  height: 24px;
+  color: ${({ isPageNumber }) => isPageNumber && '#fff'};
+  background: ${({ isPageNumber }) => (isPageNumber ? '#4d100f' : '#f8f8f8')};
+  border: 1px solid #4d100f;
   border-radius: 50%;
 `;
 

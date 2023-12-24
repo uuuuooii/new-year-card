@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 interface KeyWordProps {
+  prompt: string;
   handleSubmit: (e: any) => Promise<void>;
+  onChangeInput: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const KeyWord = ({ handleSubmit }: KeyWordProps) => {
+const KeyWord = ({ prompt, handleSubmit, onChangeInput }: KeyWordProps) => {
   return (
     <section>
-      <form onSubmit={handleSubmit}>
-        <input type="text" />
-      </form>
-
+      <div>
+        키워드 입력
+        <form onSubmit={handleSubmit}>
+          <input value={prompt} onChange={onChangeInput} />
+        </form>
+      </div>
     </section>
   );
 };
