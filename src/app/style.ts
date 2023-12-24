@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.main`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   height: 100vh;
-  padding: 100px 0;
 `;
 
 export const Wrap = styled.div`
@@ -15,6 +16,10 @@ export const Wrap = styled.div`
   padding: 50px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background-color: ${({ theme }) => theme.color.white};
+
+  @media screen and (max-width: 768px) {
+    padding: 30px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -47,6 +52,7 @@ export const Text = styled.p`
   margin-top: 30px;
   ${({ theme }) => theme.typography.size.subtitle.s01}
   color: white;
+  font-weight: 600;
   border-radius: 8px;
   background: #de1911;
 

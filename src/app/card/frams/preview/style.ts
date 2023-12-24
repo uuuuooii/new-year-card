@@ -3,13 +3,27 @@
 import styled from '@emotion/styled';
 
 export const Section = styled.section`
+  position: relative;
   display: grid;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 350px;
-  padding: 20px;
+  max-width: 500px;
+  padding: 35px;
   background-color: #f8f8f8;
+`;
+
+export const PreviewInfo = styled.div`
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  width: 50px;
+  padding: 3px;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 10px;
+  background: #f1cccc;
+  color: #551a1a;
 `;
 
 export const Year = styled.p`

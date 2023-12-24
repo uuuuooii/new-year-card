@@ -1,5 +1,6 @@
 import EmotionProvider from '@components/lib/provider/emotion';
 import type { Metadata } from 'next';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
   title: '신년카드',

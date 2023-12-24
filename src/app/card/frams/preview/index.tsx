@@ -12,6 +12,7 @@ interface PreviewProps {
 const Preview = ({ image, isSend, loadingStep }: PreviewProps) => {
   return (
     <S.Section>
+      <S.PreviewInfo>미리보기</S.PreviewInfo>
       <S.Year>2024</S.Year>
       <S.ImageWrap>
         {isSend &&

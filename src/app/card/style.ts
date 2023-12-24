@@ -10,8 +10,9 @@ export const Container = styled.main`
   height: 100vh;
   padding: 100px 0;
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
     height: 100%;
+    padding: 0;
   }
 `;
 
@@ -25,7 +26,8 @@ export const Wrap = styled.div`
   ${mediaQuery.tablet} {
     flex-wrap: wrap;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 768px) {
+    display: grid;
     flex-wrap: wrap;
   }
 `;

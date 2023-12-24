@@ -18,7 +18,7 @@ export default function Home() {
 
           <Link href='/card'>
             <S.Text>
-              신년카드 만들어가기
+              신년카드 만들기
             </S.Text>
           </Link>
         </S.Wrap>

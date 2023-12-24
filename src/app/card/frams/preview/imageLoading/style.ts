@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 export const Loading = styled.div`
   position: absolute;
-  top: 20px;
+  top: 208px;
   left: 36px;
 `;
 

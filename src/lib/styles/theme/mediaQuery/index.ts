@@ -1,7 +1,7 @@
 const mediaQueryPx = {
   oculus: '505px',
   mobile: '475px',
-  tablet: '767px',
+  tablet: '768px',
   laptop: '1024px',
   desktop: '1240px',
   landscape: '(orientation : landscape)',

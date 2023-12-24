@@ -36,6 +36,7 @@ const globals = css`
   html,
   body {
     background-color: #f3f4f6;
+    overflow-x: hidden;
   }
   div,
   span,

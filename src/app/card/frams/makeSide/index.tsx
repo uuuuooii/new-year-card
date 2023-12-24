@@ -7,8 +7,16 @@ import DrawingStyle from './drawingStyle';
 import * as S from './style';
 
 interface MakeSideProps {
-  prompt: string;
-  setPromt: React.Dispatch<React.SetStateAction<string>>;
+  prompt: {
+    color: string;
+    drawingStyle: string;
+    keyword: string;
+  }[];
+  setPromt: React.Dispatch<React.SetStateAction<{
+    color: string;
+    drawingStyle: string;
+    keyword: string;
+  }[]>>;
   image: string;
   setImage: React.Dispatch<React.SetStateAction<string>>;
   setIsSend: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,7 +26,6 @@ interface MakeSideProps {
 const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep }: MakeSideProps) => {
   const Num = [1, 2, 3, 4];
   const [pageNumber, setPageNumber] = useState(1);
-  console.log(pageNumber);
 
   const onClickNext = () => {
     if (pageNumber < 4) {
@@ -33,7 +40,7 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
   };
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setPromt(e.target.value);
+    setPromt([{ color: '', drawingStyle: '', keyword: e.target.value }]);
   };
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -71,15 +78,15 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
 
 
   const selectSection: { [key: number]: React.JSX.Element; } = {
-    1: <DrawingStyle />,
-    2: <KeyWord prompt={prompt} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
-    3: <ColorPicker />,
+    1: <DrawingStyle prompt={prompt} setPromt={setPromt} />,
+    2: <ColorPicker />,
+    3: < KeyWord prompt={prompt} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
     4: <ColorPicker />,
   };
 
   const sectionTitle: { [key: number]: string; } = {
     1: '이미지의 그림체를 선택해주세요',
-    2: '신년카드에 들어가는 이미지의 그림체를 선택해주세요',
+    2: '이미지의 메인 컬러를 선택해주세요',
     3: '신년카드에 들어가는 이미지의 그림체를 선택해주세요',
     4: '신년카드에 들어가는 이미지의 그림체를 선택해주세요',
   };
@@ -95,8 +102,10 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
 
       {selectSection[pageNumber]}
 
-      <button onClick={onClickPrev}>Back</button>
-      <button onClick={onClickNext}>Next</button>
+      <S.ButtonWrap>
+        <S.Button onClick={onClickPrev} isBack>Back</S.Button>
+        <S.Button onClick={onClickNext} isNext>Next</S.Button>
+      </S.ButtonWrap>
     </S.Section>
   );
 };
