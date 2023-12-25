@@ -11,12 +11,12 @@ interface MakeSideProps {
     color: string;
     drawingStyle: string;
     keyword: string;
-  }[];
+  };
   setPromt: React.Dispatch<React.SetStateAction<{
     color: string;
     drawingStyle: string;
     keyword: string;
-  }[]>>;
+  }>>;
   image: string;
   setImage: React.Dispatch<React.SetStateAction<string>>;
   setIsSend: React.Dispatch<React.SetStateAction<boolean>>;
@@ -40,7 +40,7 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
   };
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setPromt([{ color: '', drawingStyle: '', keyword: e.target.value }]);
+    setPromt({ color: '', drawingStyle: '', keyword: e.target.value });
   };
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -76,11 +76,13 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
     }
   };
 
-
+  const { color, drawingStyle, keyword } = prompt;
+  console.log(drawingStyle);
+  console.log(keyword);
   const selectSection: { [key: number]: React.JSX.Element; } = {
-    1: <DrawingStyle prompt={prompt} setPromt={setPromt} />,
+    1: <DrawingStyle drawingStyle={drawingStyle} setPromt={setPromt} />,
     2: <ColorPicker />,
-    3: < KeyWord prompt={prompt} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
+    3: < KeyWord keyword={keyword} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
     4: <ColorPicker />,
   };
 

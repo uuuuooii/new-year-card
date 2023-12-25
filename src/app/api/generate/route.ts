@@ -8,11 +8,17 @@ const openai = new OpenAI({
 export async function POST(res: Request) {
   const { content } = await res.json();
 
-  console.log(content);
+  const promp =
+    content.drawingStyle +
+    '이런 느낌' +
+    '메인 컬러는' +
+    content.color +
+    content.keyword;
+  console.log(promp);
   try {
     const response = await openai.images.generate({
       model: 'dall-e-3',
-      prompt: content,
+      prompt: promp,
       n: 1,
       size: '1024x1024',
     });
