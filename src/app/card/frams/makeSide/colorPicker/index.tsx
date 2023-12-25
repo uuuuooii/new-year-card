@@ -1,20 +1,32 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HexColorPicker } from "react-colorful";
 import * as S from './style';
 
-const ColorPicker = () => {
-  const [color, setColor] = useState('#000000');
-  console.log(color);
+interface ColorPickerProps {
+  color: string;
+  setPromt: React.Dispatch<React.SetStateAction<{
+    color: string;
+    drawingStyle: string;
+    keyword: string;
+  }>>;
+}
+
+const ColorPicker = ({ setPromt }: ColorPickerProps) => {
+  const [colorPicker, setColorPicker] = useState('#000000');
+
+  const onClickColor = (color: string) => {
+    setPromt((prev) => ({ color: color, drawingStyle: prev.drawingStyle, keyword: prev.keyword }));
+  };
   return (
     <S.Wrap>
-      <HexColorPicker onChange={setColor} />
+      <HexColorPicker onChange={setColorPicker} />
       <S.ColorContent>
         <p>선택한 컬러</p>
-        <S.Content >
-          <S.ColorPreview color={color} />
-          <p>{color}</p>
+        <S.Content onClick={() => onClickColor(colorPicker)}>
+          <S.ColorPreview color={colorPicker} />
+          <p>{colorPicker}</p>
         </S.Content>
         <S.Content>없음</S.Content>
       </S.ColorContent>

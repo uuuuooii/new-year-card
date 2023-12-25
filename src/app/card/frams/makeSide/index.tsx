@@ -40,7 +40,7 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
   };
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setPromt({ color: '', drawingStyle: '', keyword: e.target.value });
+    setPromt((prev) => ({ color: prev.color, drawingStyle: prev.drawingStyle, keyword: e.target.value }));
   };
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -77,13 +77,13 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
   };
 
   const { color, drawingStyle, keyword } = prompt;
-  console.log(drawingStyle);
-  console.log(keyword);
+  // console.log(drawingStyle);
+  // console.log(keyword);
   const selectSection: { [key: number]: React.JSX.Element; } = {
     1: <DrawingStyle drawingStyle={drawingStyle} setPromt={setPromt} />,
-    2: <ColorPicker />,
-    3: < KeyWord keyword={keyword} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
-    4: <ColorPicker />,
+    2: <ColorPicker color={color} setPromt={setPromt} />,
+    3: <KeyWord keyword={keyword} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
+    4: <ColorPicker color={color} />,
   };
 
   const sectionTitle: { [key: number]: string; } = {

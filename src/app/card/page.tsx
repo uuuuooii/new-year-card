@@ -13,7 +13,6 @@ const Card = () => {
   const [isSend, setIsSend] = useState(false);
   console.log(prompt);
 
-
   return (
     <S.Container>
       <Inner>
