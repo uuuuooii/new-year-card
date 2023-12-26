@@ -37,7 +37,11 @@ export const ButtonWrap = styled.div`
   bottom: 55px;
 `;
 
-export const Button = styled.button<{ isNext?: boolean; isBack?: boolean }>`
+export const Button = styled.button<{
+  isNext?: boolean;
+  isBack?: boolean;
+  isEnd?: boolean;
+}>`
   position: absolute;
   left: ${({ isNext }) => isNext && '225px'};
   width: 50px;

@@ -5,25 +5,30 @@ import ColorPicker from './colorPicker';
 import KeyWord from './keyword';
 import DrawingStyle from './drawingStyle';
 import * as S from './style';
+import Letter from './letter';
 
 interface MakeSideProps {
   prompt: {
     color: string;
     drawingStyle: string;
     keyword: string;
+    letter: string;
   };
   setPromt: React.Dispatch<React.SetStateAction<{
     color: string;
     drawingStyle: string;
     keyword: string;
+    letter: string;
   }>>;
   image: string;
   setImage: React.Dispatch<React.SetStateAction<string>>;
   setIsSend: React.Dispatch<React.SetStateAction<boolean>>;
   setLoadingStep: React.Dispatch<React.SetStateAction<number>>;
+  colorPicker: string;
+  setColorPicker: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep }: MakeSideProps) => {
+const MakeSide = ({ prompt, setPromt, setImage, setIsSend, setLoadingStep, colorPicker, setColorPicker }: MakeSideProps) => {
   const Num = [1, 2, 3, 4];
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -39,9 +44,7 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
     }
   };
 
-  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    setPromt((prev) => ({ color: prev.color, drawingStyle: prev.drawingStyle, keyword: e.target.value }));
-  };
+
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -76,21 +79,20 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
     }
   };
 
-  const { color, drawingStyle, keyword } = prompt;
-  // console.log(drawingStyle);
-  // console.log(keyword);
+  const { color, drawingStyle, keyword, letter } = prompt;
+  console.log(letter);
   const selectSection: { [key: number]: React.JSX.Element; } = {
     1: <DrawingStyle drawingStyle={drawingStyle} setPromt={setPromt} />,
-    2: <ColorPicker color={color} setPromt={setPromt} />,
-    3: <KeyWord keyword={keyword} handleSubmit={handleSubmit} onChangeInput={onChangeInput} />,
-    4: <ColorPicker color={color} />,
+    2: <ColorPicker color={color} setPromt={setPromt} colorPicker={colorPicker} setColorPicker={setColorPicker} />,
+    3: <KeyWord keyword={keyword} setPromt={setPromt} />,
+    4: <Letter letter={letter} setPromt={setPromt} />,
   };
 
   const sectionTitle: { [key: number]: string; } = {
     1: '이미지의 그림체를 선택해주세요',
     2: '이미지의 메인 컬러를 선택해주세요',
-    3: '신년카드에 들어가는 이미지의 그림체를 선택해주세요',
-    4: '신년카드에 들어가는 이미지의 그림체를 선택해주세요',
+    3: '원하는 이미지의 키워드를 작성해주세요',
+    4: '편지 내용을 작성해주세요',
   };
 
   return (
@@ -105,8 +107,15 @@ const MakeSide = ({ prompt, setPromt, image, setImage, setIsSend, setLoadingStep
       {selectSection[pageNumber]}
 
       <S.ButtonWrap>
-        <S.Button onClick={onClickPrev} isBack>Back</S.Button>
-        <S.Button onClick={onClickNext} isNext>Next</S.Button>
+        {pageNumber > 1 && <S.Button onClick={onClickPrev} isBack>뒤로</S.Button>}
+        {pageNumber < 4 && <S.Button onClick={onClickNext} isNext>다음</S.Button>}
+
+        {pageNumber === 4 &&
+          <form onSubmit={handleSubmit}>
+            <S.Button isNext>완료</S.Button>
+          </form>
+        }
+
       </S.ButtonWrap>
     </S.Section>
   );

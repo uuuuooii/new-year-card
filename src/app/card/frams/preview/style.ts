@@ -44,12 +44,56 @@ export const ImageWrap = styled.picture`
 `;
 
 export const Desc = styled.div`
+  position: relative;
   display: grid;
   text-align: center;
-  padding: 24px 0;
+  gap: 25px;
+  padding: 38px 0 0;
+`;
+
+export const Line = styled.div`
+  display: grid;
+  width: 250px;
+  border-bottom: 1px solid #4d100f;
+`;
+
+export const TextWrap = styled.div`
+  position: absolute;
+  top: 13px;
+  left: 60px;
 `;
 
 export const Text = styled.p`
+  /* width: 250px; */
+
   font-family: 'EF_jejudoldam';
-  border-bottom: 1px solid #4d100f;
+  text-align: center;
+
+  /* &:nth-child(3) {
+    border-bottom: 1px solid #4d100f;
+  } */
+
+  /* text-underline-position: under;
+  text-decoration: underline;
+  text-decoration-color: #4d100f;
+   */
+  /* white-space: pre-wrap;
+  &:nth-child(1) {
+    background: linear-gradient(
+      to top,
+      #4d100f,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+  &:nth-child(2) {
+    background: linear-gradient(
+      to bottom,
+      #4d100f,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  background-size: 100% 1.8em; */
 `;

@@ -22,9 +22,9 @@ export const Content = styled.div`
   border-radius: 5px;
 `;
 
-export const ColorPreview = styled.div<{ color: string }>`
+export const ColorPreview = styled.div<{ colorPicker: string }>`
   width: 25px;
   height: 25px;
-  background: ${({ color }) => color && color};
+  background: ${({ colorPicker }) => colorPicker && colorPicker};
   border-radius: 50%;
 `;
