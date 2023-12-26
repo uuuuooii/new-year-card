@@ -57,43 +57,15 @@ export const Line = styled.div`
   border-bottom: 1px solid #4d100f;
 `;
 
-export const TextWrap = styled.div`
+export const TextWrap = styled.div<{ letter: string }>`
   position: absolute;
   top: 13px;
-  left: 60px;
+  width: 240px;
+  word-wrap: break-word;
 `;
 
 export const Text = styled.p`
-  /* width: 250px; */
-
+  white-space: pre-wrap;
   font-family: 'EF_jejudoldam';
   text-align: center;
-
-  /* &:nth-child(3) {
-    border-bottom: 1px solid #4d100f;
-  } */
-
-  /* text-underline-position: under;
-  text-decoration: underline;
-  text-decoration-color: #4d100f;
-   */
-  /* white-space: pre-wrap;
-  &:nth-child(1) {
-    background: linear-gradient(
-      to top,
-      #4d100f,
-      transparent 1px,
-      transparent 3px
-    );
-  }
-  &:nth-child(2) {
-    background: linear-gradient(
-      to bottom,
-      #4d100f,
-      transparent 1px,
-      transparent 3px
-    );
-  }
-
-  background-size: 100% 1.8em; */
 `;
