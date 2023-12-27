@@ -5,8 +5,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function POST(res: NextResponse, req: NextRequest) {
-  const { content } = await res.json();
+export async function POST(req: NextRequest) {
+  const { content } = await req.json();
 
   const promp =
     content.drawingStyle +
