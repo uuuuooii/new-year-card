@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Preview from "./frams/preview";
 import MakeSide from "./frams/makeContents";
 import Inner from "@components/components/inner";
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
-import { toJpeg } from "html-to-image";
 import CongratsLottie from "@components/lib/lottie/congrats";
 import Button from "@components/components/button";
 import * as S from "./style";
+import downloadjs from "downloadjs";
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 import Share from "@components/components/share";
 
 const Card = () => {
@@ -26,29 +27,24 @@ const Card = () => {
   const [isSend, setIsSend] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
   const [isShowLottie, setIsShowLottie] = useState(false);
-  const [isShare, setIsShare] = useState(false);
-  console.log(isShowLottie);
-  console.log(loadingStep);
 
-
-
-  // 컴포넌트 다운로드 함수
-  const onClickDownload = () => {
-    const downloadImgElement = document.querySelector("#downloadImg");
-
-    if (!downloadImgElement) {
-      console.error("Element with ID 'downloadImg' not found");
-      return;
-    }
-
-    domtoimage.toBlob(downloadImgElement).then((blob: Blob) => {
-      const saveConfirm = window.confirm("이미지를 저장하시겠습니까?");
-      if (saveConfirm === true) {
-        saveAs(blob, "new_year_card.png");
-      }
-    });
+  const shareData = {
+    title: "신년카드 만들기",
+    text: "신년카드",
+    url: "https://new-year-card-g1patgw11-uuuuooii.vercel.app/"
   };
 
+
+  const testRef = useRef<HTMLDivElement>(null);
+  console.log(testRef);
+  const onClickDownload = useCallback(async () => {
+    if (testRef.current) {
+      const imageData = await toJpeg(testRef.current);
+
+      downloadjs(await toJpeg(testRef.current), "test.jpg");
+
+    }
+  }, []);
 
 
   // 이미지 공유하기
@@ -79,7 +75,6 @@ const Card = () => {
         .then(() => console.log("Share was successful."))
         .catch((error) => console.log("Sharing failed", error));
     } else {
-      setIsShare(true);
       console.log(`Your system doesn't support sharing files.`);
 
     }
@@ -115,7 +110,6 @@ const Card = () => {
     e.returnValue = ""; // chrome에서는 설정이 필요해서 넣은 코드
   };
 
-  // 브라우저에 렌더링 시 한 번만 실행하는 코드
   useEffect(() => {
     (() => {
       window.addEventListener("beforeunload", preventClose);
@@ -137,6 +131,7 @@ const Card = () => {
               loadingStep={loadingStep}
               letter={letter}
               isEnd={isEnd}
+              testRef={testRef}
             />
             <MakeSide
               prompt={prompt}
@@ -155,24 +150,26 @@ const Card = () => {
           {loadingStep === 3 && (
             <S.ButtonWrap>
               <Button
-                onClick={onClickDownload}
+                onClick={() => onClickDownload()}
                 size="medium"
                 state="normal"
                 colorType="white"
               >
                 다운로드 하기
               </Button>
-              <Button
-                onClick={onClickCreateShareImage}
-                size="medium"
-                state="normal"
-                colorType="black"
-              >
-                공유하기
-              </Button>
+              <Share shareData={shareData}>
+                {/* 카톡 공유로 변경 */}
+                <Button
+                  onClick={onClickCreateShareImage}
+                  size="medium"
+                  state="normal"
+                  colorType="black"
+                >
+                  공유하기
+                </Button>
+              </Share>
             </S.ButtonWrap>
           )}
-          {isShare && <Share />}
         </Inner>
       </S.Container>
       {isShowLottie && (
@@ -180,6 +177,9 @@ const Card = () => {
           <CongratsLottie />
         </S.LottieWrap>
       )}
+
+
+
     </main>
   );
 };

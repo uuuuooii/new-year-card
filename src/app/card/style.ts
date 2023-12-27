@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import mediaQuery from "@components/lib/styles/theme/mediaQuery";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import mediaQuery from '@components/lib/styles/theme/mediaQuery';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const Container = styled.div<{ isEnd: boolean }>`
   display: flex;
@@ -44,12 +44,14 @@ export const LottieWrap = styled.div`
   width: 578px;
   height: 200px;
   top: 42px;
-  left: 120px;
+  left: 50%;
+  transform: translate(-50%);
   z-index: 1;
   ${mediaQuery.tablet} {
-    width: 100%;
+    width: 351px;
     top: 19px;
-    left: 1px;
+    left: 50%;
+    transform: translate(-50%);
   }
 `;
 

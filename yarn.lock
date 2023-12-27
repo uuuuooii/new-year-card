@@ -310,6 +310,11 @@
   resolved "https://registry.npmjs.org/@types/dom-to-image/-/dom-to-image-2.6.7.tgz"
   integrity sha512-me5VbCv+fcXozblWwG13krNBvuEOm6kA5xoa4RrjDJCNFOZSWR3/QLtOXimBHk1Fisq69Gx3JtOoXtg1N1tijg==
 
+"@types/downloadjs@^1.4.6":
+  version "1.4.6"
+  resolved "https://registry.npmjs.org/@types/downloadjs/-/downloadjs-1.4.6.tgz"
+  integrity sha512-mp3w70vsaiLRT9ix92fmI9Ob2yJAPZm6tShJtofo2uHbN11G2i6a0ApIEjBl/kv3e9V7Pv7jMjk1bUwYWvMHvA==
+
 "@types/file-saver@^2.0.7":
   version "2.0.7"
   resolved "https://registry.npmjs.org/@types/file-saver/-/file-saver-2.0.7.tgz"
@@ -425,7 +430,7 @@
 
 "@vercel/analytics@^1.1.1":
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@vercel/analytics/-/analytics-1.1.1.tgz#2a712378a95014a548b4f9d2ae1ea0721433908d"
+  resolved "https://registry.npmjs.org/@vercel/analytics/-/analytics-1.1.1.tgz"
   integrity sha512-+NqgNmSabg3IFfxYhrWCfB/H+RCUOCR5ExRudNG2+pcRehq628DJB5e1u1xqwpLtn4pAYii4D98w7kofORAGQA==
   dependencies:
     server-only "^0.0.1"
@@ -864,6 +869,11 @@ dom-to-image@^2.6.0:
   version "2.6.0"
   resolved "https://registry.npmjs.org/dom-to-image/-/dom-to-image-2.6.0.tgz"
   integrity sha512-Dt0QdaHmLpjURjU7Tnu3AgYSF2LuOmksSGsUcE6ItvJoCWTBEmiMXcqBdNSAm9+QbbwD7JMoVsuuKX6ZVQv1qA==
+
+downloadjs@^1.4.7:
+  version "1.4.7"
+  resolved "https://registry.npmjs.org/downloadjs/-/downloadjs-1.4.7.tgz"
+  integrity sha512-LN1gO7+u9xjU5oEScGFKvXhYf7Y/empUIIEAGBs1LzUq/rg5duiDrkuH5A2lQGd5jfMOb9X9usDa2oVXwJ0U/Q==
 
 emoji-regex@^9.2.2:
   version "9.2.2"
@@ -1782,6 +1792,11 @@ json5@^1.0.2:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
+kakao-sdk@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/kakao-sdk/-/kakao-sdk-3.1.0.tgz#0fd5cf2be39fb0de57254225d187de88266f3e65"
+  integrity sha512-hXKbmZX+QyuGzN+wsoslQqQYRHxehxz3CvcXwCBCePwMQkDNezHgFrn3AQOSYjyOBvhwciqqE88rAk664Ql2rw==
+
 keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.npmjs.org/keyv/-/keyv-4.5.4.tgz"
@@ -2295,7 +2310,7 @@ semver@^7.5.4:
 
 server-only@^0.0.1:
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/server-only/-/server-only-0.0.1.tgz#0f366bb6afb618c37c9255a314535dc412cd1c9e"
+  resolved "https://registry.npmjs.org/server-only/-/server-only-0.0.1.tgz"
   integrity sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==
 
 set-function-length@^1.1.1:

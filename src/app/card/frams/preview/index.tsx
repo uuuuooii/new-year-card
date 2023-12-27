@@ -9,6 +9,7 @@ interface PreviewProps {
   loadingStep: number;
   letter: string;
   isEnd: boolean;
+  testRef: React.RefObject<HTMLDivElement>;
 }
 
 const Preview = ({
@@ -17,9 +18,10 @@ const Preview = ({
   loadingStep,
   letter,
   isEnd,
+  testRef
 }: PreviewProps) => {
   return (
-    <S.Section id="downloadImg">
+    <S.Section id="downloadImg" ref={testRef}>
       {!isEnd && <S.PreviewInfo>미리보기</S.PreviewInfo>}
       <S.Year>2024</S.Year>
       <S.ImageWrap>
