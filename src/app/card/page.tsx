@@ -48,14 +48,14 @@ const Card = () => {
 
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      if (loadingStep === 3) {
-        setIsShowLottie(true);
-      }
-    }, 1000);
+    // const timeoutId = setTimeout(() => {
+    if (loadingStep === 3) {
+      setIsShowLottie(true);
+    }
+    // }, 1000);
 
     // 컴포넌트가 언마운트되면 타이머를 해제하여 메모리 누수를 방지;
-    return () => clearTimeout(timeoutId);
+    // return () => clearTimeout(timeoutId);
   }, [loadingStep]);
 
   // 새로고침 막기 변수

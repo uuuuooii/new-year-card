@@ -1,3 +1,14 @@
 {
-  "regions": ["icn1"]
+  "regions": ["icn1"],
+  "functions": {
+    "api/generate": {
+      "maxDuration": 30
+    },
+    "api/*.ts": {
+      "maxDuration": 30
+    },
+    "app/api/**/*": {
+      "maxDuration": 30
+    }
+  }
 }
