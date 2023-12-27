@@ -47,52 +47,6 @@ const Card = () => {
   }, []);
 
 
-  // 이미지 공유하기
-  const dataURLtoFile = (dataurl: string, filename: string) => {
-    let arr = dataurl.split(",");
-    let match = arr[0].match(/:(.*?);/);
-    let mimeType = match ? match[1] : null;
-    let decodedData = atob(arr[1]);
-    let lengthOfDecodedData = decodedData.length;
-    let u8array = new Uint8Array(lengthOfDecodedData);
-
-    while (lengthOfDecodedData--) {
-      u8array[lengthOfDecodedData] =
-        decodedData.charCodeAt(lengthOfDecodedData);
-    }
-    mimeType = mimeType || "application/octet-stream";
-    return new File([u8array], filename, { type: mimeType });
-  };
-
-  const shareFile = (file: File, title: string, text: string) => {
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator
-        .share({
-          files: [file],
-          title,
-          text,
-        })
-        .then(() => console.log("Share was successful."))
-        .catch((error) => console.log("Sharing failed", error));
-    } else {
-      console.log(`Your system doesn't support sharing files.`);
-
-    }
-  };
-
-  const onClickCreateShareImage = () => {
-    const downloadImgElement = document.querySelector("#downloadImg");
-    if (!downloadImgElement) {
-      console.error("Element with ID 'downloadImg' not found");
-      return;
-    }
-
-    toJpeg(downloadImgElement as HTMLElement, { quality: 0.95 }).then((dataUrl) => {
-      const file = dataURLtoFile(dataUrl, "new_year_card.png");
-      shareFile(file, "Title", "https://co-aid.in");
-    });
-  };
-
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       if (loadingStep === 3) {
@@ -160,16 +114,18 @@ const Card = () => {
               <Share shareData={shareData}>
                 {/* 카톡 공유로 변경 */}
                 <Button
-                  onClick={onClickCreateShareImage}
+                  // onClick={onClickCreateShareImage}
                   size="medium"
                   state="normal"
                   colorType="black"
                 >
                   공유하기
                 </Button>
+
               </Share>
             </S.ButtonWrap>
           )}
+
         </Inner>
       </S.Container>
       {isShowLottie && (
