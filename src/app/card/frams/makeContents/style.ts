@@ -2,11 +2,13 @@
 
 import styled from '@emotion/styled';
 
-export const Section = styled.section`
+export const Section = styled.section<{ isEnd: boolean }>`
   position: relative;
   max-width: 500px;
   min-width: 350px;
+  /* width: 350px; */
   padding: 40px;
+  display: ${({ isEnd }) => isEnd && 'none'};
 `;
 
 export const NumberList = styled.div`
@@ -32,9 +34,10 @@ export const Title = styled.p`
   padding-bottom: 30px;
 `;
 
-export const ButtonWrap = styled.div`
-  position: absolute;
-  bottom: 55px;
+export const ButtonWrap = styled.div<{ pageNumber: boolean }>`
+  display: flex;
+  justify-content: space-between;
+  justify-content: ${({ pageNumber }) => pageNumber && 'end'};
 `;
 
 export const Button = styled.button<{
@@ -42,8 +45,6 @@ export const Button = styled.button<{
   isBack?: boolean;
   isEnd?: boolean;
 }>`
-  position: absolute;
-  left: ${({ isNext }) => isNext && '225px'};
   width: 50px;
   height: 30px;
   background: ${({ isNext }) => (isNext ? '#000' : '#fff')};

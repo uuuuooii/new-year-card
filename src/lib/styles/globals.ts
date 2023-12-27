@@ -1,6 +1,7 @@
 'use client';
 
 import { css } from '@emotion/react';
+import mediaQuery from './theme/mediaQuery';
 
 const globals = css`
   @font-face {
@@ -37,6 +38,9 @@ const globals = css`
   body {
     background-color: #f3f4f6;
     overflow-x: hidden;
+    ${mediaQuery.tablet} {
+      background-color: #fff;
+    }
   }
   div,
   span,

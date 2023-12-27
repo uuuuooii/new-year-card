@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
+import mediaQuery from '@components/lib/styles/theme/mediaQuery';
 
-export const Container = styled.main`
-  position: fixed;
+export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,8 +17,9 @@ export const Wrap = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background-color: ${({ theme }) => theme.color.white};
 
-  @media screen and (max-width: 768px) {
+  ${mediaQuery.tablet} {
     padding: 30px;
+    box-shadow: none;
   }
 `;
 

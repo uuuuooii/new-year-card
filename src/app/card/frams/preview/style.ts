@@ -1,5 +1,6 @@
 'use client';
 
+import mediaQuery from '@components/lib/styles/theme/mediaQuery';
 import styled from '@emotion/styled';
 
 export const Section = styled.section`
@@ -8,9 +9,16 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 365px;
+  min-width: 365px;
   padding: 35px;
   background-color: #f8f8f8;
+
+  ${mediaQuery.desktop} {
+    max-width: unset;
+    min-width: unset;
+    display: unset;
+  }
 `;
 
 export const PreviewInfo = styled.div`
@@ -46,6 +54,8 @@ export const ImageWrap = styled.picture`
 export const Desc = styled.div`
   position: relative;
   display: grid;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   gap: 25px;
   padding: 38px 0 0;
@@ -60,6 +70,7 @@ export const Line = styled.div`
 export const TextWrap = styled.div<{ letter: string }>`
   position: absolute;
   top: 13px;
+  left: 56px;
   width: 240px;
   word-wrap: break-word;
 `;

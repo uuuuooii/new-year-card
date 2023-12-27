@@ -8,12 +8,13 @@ interface PreviewProps {
   isSend: boolean;
   loadingStep: number;
   letter: string;
+  isEnd: boolean;
 }
 
-const Preview = ({ image, isSend, loadingStep, letter }: PreviewProps) => {
+const Preview = ({ image, isSend, loadingStep, letter, isEnd }: PreviewProps) => {
   return (
     <S.Section>
-      <S.PreviewInfo>미리보기</S.PreviewInfo>
+      {!isEnd && <S.PreviewInfo>미리보기</S.PreviewInfo>}
       <S.Year>2024</S.Year>
       <S.ImageWrap>
         {isSend &&
@@ -36,8 +37,7 @@ const Preview = ({ image, isSend, loadingStep, letter }: PreviewProps) => {
         <S.Line />
         <S.Line />
       </S.Desc>
-
-    </S.Section>
+    </S.Section >
   );
 };
 

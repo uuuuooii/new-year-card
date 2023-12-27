@@ -1,3 +1,4 @@
+import Footer from '@components/components/footer';
 import EmotionProvider from '@components/lib/provider/emotion';
 import type { Metadata } from 'next';
 import Head from 'next/head';
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body>
         <EmotionProvider>
           {children}
+          <Footer />
         </EmotionProvider>
       </body>
     </html>

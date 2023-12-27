@@ -1,21 +1,18 @@
 const mediaQueryPx = {
-  oculus: '505px',
-  mobile: '475px',
-  tablet: '768px',
-  laptop: '1024px',
-  desktop: '1240px',
-  landscape: '(orientation : landscape)',
-  portrait: '(orientation : portrait)',
+  mobile: 475,
+  tablet: 768,
+  laptop: 1024,
+  desktop: 1240,
 };
 
+const customMediaQuery = (maxWidth: number) =>
+  `@media screen and (max-width: ${maxWidth}px)`;
+
 const mediaQuery = {
-  oculus: `(max-height: ${mediaQueryPx.oculus})`,
-  mobile: `(max-width: ${mediaQueryPx.mobile})`,
-  tablet: `(max-width: ${mediaQueryPx.tablet})`,
-  laptop: `(max-width: ${mediaQueryPx.laptop})`,
-  desktop: `(max-width: ${mediaQueryPx.desktop})`,
-  landscape: `${mediaQueryPx.landscape}`,
-  portrait: `${mediaQueryPx.portrait}`,
+  mobile: customMediaQuery(mediaQueryPx.mobile),
+  tablet: customMediaQuery(mediaQueryPx.tablet),
+  laptop: customMediaQuery(mediaQueryPx.laptop),
+  desktop: customMediaQuery(mediaQueryPx.desktop),
 };
 
 export default mediaQuery;

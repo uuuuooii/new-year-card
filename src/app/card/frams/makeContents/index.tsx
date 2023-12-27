@@ -1,11 +1,11 @@
 "use client";
 
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import ColorPicker from './colorPicker';
 import KeyWord from './keyword';
 import DrawingStyle from './drawingStyle';
-import * as S from './style';
 import Letter from './letter';
+import * as S from './style';
 
 interface MakeSideProps {
   prompt: {
@@ -26,9 +26,21 @@ interface MakeSideProps {
   setLoadingStep: React.Dispatch<React.SetStateAction<number>>;
   colorPicker: string;
   setColorPicker: React.Dispatch<React.SetStateAction<string>>;
+  setIsEnd: React.Dispatch<React.SetStateAction<boolean>>;
+  isEnd: boolean;
 }
 
-const MakeSide = ({ prompt, setPromt, setImage, setIsSend, setLoadingStep, colorPicker, setColorPicker }: MakeSideProps) => {
+const MakeSide = ({
+  prompt,
+  setPromt,
+  setImage,
+  setIsSend,
+  setLoadingStep,
+  colorPicker,
+  setColorPicker,
+  setIsEnd,
+  isEnd
+}: MakeSideProps) => {
   const Num = [1, 2, 3, 4];
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -45,11 +57,11 @@ const MakeSide = ({ prompt, setPromt, setImage, setIsSend, setLoadingStep, color
   };
 
 
-
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
 
     try {
+      setIsEnd(true);
       setLoadingStep(1);
       setIsSend(true);
       const res = await fetch("api/generate", {
@@ -95,9 +107,10 @@ const MakeSide = ({ prompt, setPromt, setImage, setIsSend, setLoadingStep, color
     4: '편지 내용을 작성해주세요',
   };
 
+
   return (
-    <S.Section>
-      <S.NumberList >
+    <S.Section isEnd={isEnd}>
+      <S.NumberList>
         {Num.map((item) => (
           <S.NumberItem isPageNumber={pageNumber === item} key={item}>{item}</S.NumberItem>
         ))}
@@ -106,18 +119,18 @@ const MakeSide = ({ prompt, setPromt, setImage, setIsSend, setLoadingStep, color
 
       {selectSection[pageNumber]}
 
-      <S.ButtonWrap>
+      <S.ButtonWrap pageNumber={pageNumber === 1} >
         {pageNumber > 1 && <S.Button onClick={onClickPrev} isBack>뒤로</S.Button>}
         {pageNumber < 4 && <S.Button onClick={onClickNext} isNext>다음</S.Button>}
 
         {pageNumber === 4 &&
           <form onSubmit={handleSubmit}>
             <S.Button isNext>완료</S.Button>
-          </form>
-        }
+          </form>}
 
       </S.ButtonWrap>
     </S.Section>
+
   );
 };
 
