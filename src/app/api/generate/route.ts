@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
 import OpenAI from 'openai';
 
-export const maxDuration = 5;
+export const maxDuration = 300;
 export const dynamic = 'force-dynamic';
 
 const openai = new OpenAI({
