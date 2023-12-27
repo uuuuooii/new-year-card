@@ -2,6 +2,7 @@
   "functions": {
     "app/api/**/*": {
       "maxDuration": 300
-    }
+    },
+    "regions": ["icn1"]
   }
 }
