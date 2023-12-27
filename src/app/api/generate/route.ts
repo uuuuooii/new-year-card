@@ -1,10 +1,8 @@
 import { NextResponse, NextRequest } from 'next/server';
 import OpenAI from 'openai';
 
-// export const config = {
-//   runtime: 'edge',
-// };
-// export const maxDuration = 5;
+export const maxDuration = 5;
+export const dynamic = 'force-dynamic';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
