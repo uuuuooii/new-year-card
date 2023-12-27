@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Wrap = styled.div`
-  padding: 102px 0 116px;
+  width: 300px;
+  height: 300px;
+  background-color: aliceblue;
 `;

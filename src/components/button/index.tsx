@@ -1,14 +1,28 @@
-import React, { PropsWithChildren } from 'react';
-import { ButtonStyle } from './style';
+import React from "react";
+import styled from "@emotion/styled";
+import { buttonSize, buttonType } from "./style";
 
-interface BunttonProps {
+type ButtonStyleProps = {
+  state: "normal";
+  size: "small" | "medium";
+  colorType: "black" | "white" | "brown";
+};
+
+const ButtonStyle = styled.button<ButtonStyleProps>`
+  border-radius: 5px;
+
+  ${(props) => buttonSize[props.size]}
+  ${(props) => buttonType[props.colorType]?.[props.state]}
+`;
+
+interface BunttonProps extends ButtonStyleProps {
   children: React.ReactNode;
-  isClick: boolean;
+  onClick?: () => void;
 }
 
-const Button = ({ children, isClick }: BunttonProps) => {
+const Button = ({ children, onClick, ...styleProps }: BunttonProps) => {
   return (
-    <ButtonStyle type='button' isClick={isClick}>
+    <ButtonStyle {...styleProps} onClick={onClick}>
       {children}
     </ButtonStyle>
   );

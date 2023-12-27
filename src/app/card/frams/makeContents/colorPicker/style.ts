@@ -1,14 +1,25 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const Wrap = styled.div`
   display: flex;
-  gap: 35px;
-  padding-bottom: 45px;
+  justify-content: center;
+  gap: 20px;
+  padding: 85px 0 109px;
+`;
+
+export const ColorPickerWrap = styled.div`
+  div {
+    &.react-colorful {
+      height: 124px;
+      width: 142px;
+    }
+  }
 `;
 
 export const ColorContent = styled.div`
-  gap: 10px;
   display: grid;
+  gap: 10px;
+  width: 100%;
 `;
 
 export const Content = styled.div`

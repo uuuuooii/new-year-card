@@ -1,20 +1,35 @@
-import React, { useRef, useEffect, ChangeEvent } from 'react';
-import * as S from './style';
+import React, { ChangeEvent } from "react";
+import * as S from "./style";
 
 interface TextareaProps {
   value: string;
   onChangeInput: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   maxLength: number;
   placeholder: string;
+  heigthValue: number;
 }
 
-const Textarea = ({ value, onChangeInput, maxLength, placeholder }: TextareaProps) => {
-
+const Textarea = ({
+  value,
+  onChangeInput,
+  maxLength,
+  placeholder,
+  heigthValue,
+}: TextareaProps) => {
   return (
-    <div>
-      <S.Textarea value={value} onChange={onChangeInput} maxLength={maxLength} placeholder={placeholder} />
-      <div>{value.length}/{maxLength}</div>
-    </div>
+    <S.Wrap>
+      <S.Textarea
+        required
+        value={value}
+        onChange={onChangeInput}
+        maxLength={maxLength}
+        placeholder={placeholder}
+        heigthValue={heigthValue}
+      />
+      <S.Length>
+        {value.length}/{maxLength}
+      </S.Length>
+    </S.Wrap>
   );
 };
 

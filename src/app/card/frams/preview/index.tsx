@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import ImageLoading from './imageLoading';
-import * as S from './style';
+import React from "react";
+import Image from "next/image";
+import ImageLoading from "./imageLoading";
+import * as S from "./style";
 
 interface PreviewProps {
   image: string;
@@ -11,21 +11,32 @@ interface PreviewProps {
   isEnd: boolean;
 }
 
-const Preview = ({ image, isSend, loadingStep, letter, isEnd }: PreviewProps) => {
+const Preview = ({
+  image,
+  isSend,
+  loadingStep,
+  letter,
+  isEnd,
+}: PreviewProps) => {
   return (
-    <S.Section>
+    <S.Section id="downloadImg">
       {!isEnd && <S.PreviewInfo>미리보기</S.PreviewInfo>}
       <S.Year>2024</S.Year>
       <S.ImageWrap>
-        {isSend &&
-          <ImageLoading loadingStep={loadingStep} />
-        }
-        <Image src={image ? image : '/previewImage.svg'} alt='previewImage' width={250} height={300}></Image>
+        {isSend && <ImageLoading loadingStep={loadingStep} />}
+        <Image
+          src={image ? image : "/previewImage.svg"}
+          alt="previewImage"
+          width={250}
+          height={300}
+        ></Image>
       </S.ImageWrap>
 
       <S.Desc>
         <S.TextWrap letter={letter}>
-          {letter ? (<S.Text >{letter}</S.Text>) : (
+          {letter ? (
+            <S.Text>{letter}</S.Text>
+          ) : (
             <>
               <S.Text>2024년도 같이</S.Text>
               <S.Text> 재밌게 지내자</S.Text>
@@ -37,7 +48,7 @@ const Preview = ({ image, isSend, loadingStep, letter, isEnd }: PreviewProps) =>
         <S.Line />
         <S.Line />
       </S.Desc>
-    </S.Section >
+    </S.Section>
   );
 };
 

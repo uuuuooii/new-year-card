@@ -1,12 +1,51 @@
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import theme from "@components/lib/styles/theme";
 
-export const ButtonStyle = styled.button<{ isClick: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 50px;
-  background: #f8f8f8;
-  border: ${({ isClick }) => isClick && '1px solid #4d100f'};
-  border-radius: 10px;
-`;
+export const buttonSize = {
+  small: css`
+    width: 50px;
+    height: 30px;
+  `,
+  medium: css`
+    width: 150px;
+    height: 30px;
+  `,
+};
+
+export const backButtonColorOfState = {
+  normal: css`
+    background-color: ${theme.color.black};
+    color: ${theme.color.white};
+    &:hover {
+      background-color: #535050;
+    }
+  `,
+};
+
+export const whiteButtonColorOfState = {
+  normal: css`
+    background-color: ${theme.color.white};
+    color: ${theme.color.black};
+    border: 1px solid #7a7979;
+
+    &:hover {
+      background-color: #f8f8f8;
+    }
+  `,
+};
+
+export const brownButtonColorOfState = {
+  normal: css`
+    background-color: ${theme.color.brown};
+    color: ${theme.color.white};
+    &:hover {
+      background-color: #5f3837;
+    }
+  `,
+};
+
+export const buttonType = {
+  black: backButtonColorOfState,
+  white: whiteButtonColorOfState,
+  brown: brownButtonColorOfState,
+};
