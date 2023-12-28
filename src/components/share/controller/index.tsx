@@ -76,7 +76,7 @@ const Controller = ({
 
     toJpeg(downloadImgElement as HTMLElement, { quality: 0.95 }).then((dataUrl) => {
       const file = dataURLtoFile(dataUrl, "new_year_card.png");
-      shareFile(file, "Title", "https://co-aid.in");
+      shareFile(file, "Title", "https://new-year-card-silk.vercel.app/");
     });
   };
   return (
