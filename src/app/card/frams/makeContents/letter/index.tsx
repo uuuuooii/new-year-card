@@ -21,7 +21,7 @@ const Letter = ({ letter, setPromt }: LetterProps) => {
       <Textarea
         value={letter}
         onChangeInput={onChangeInput}
-        maxLength={44}
+        maxLength={32}
         heigthValue={107}
         placeholder="내용을 작성해주세요"
       />

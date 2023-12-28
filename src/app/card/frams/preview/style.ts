@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import mediaQuery from "@components/lib/styles/theme/mediaQuery";
-import styled from "@emotion/styled";
+import mediaQuery from '@components/lib/styles/theme/mediaQuery';
+import styled from '@emotion/styled';
 
 export const Section = styled.section`
   position: relative;
@@ -36,7 +36,7 @@ export const PreviewInfo = styled.div`
 
 export const Year = styled.p`
   color: #4d100f;
-  font-family: "KOTRA_BOLD-Bold";
+  font-family: 'KOTRA_BOLD-Bold';
   font-size: 4.375rem;
   font-weight: 900;
   text-align: center;
@@ -57,7 +57,7 @@ export const Desc = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 25px;
+  gap: 35px;
   padding: 38px 0 0;
 `;
 
@@ -69,7 +69,7 @@ export const Line = styled.div`
 
 export const TextWrap = styled.div<{ letter: string }>`
   position: absolute;
-  top: 13px;
+  top: 6px;
   left: 50%;
   width: 240px;
   transform: translate(-50%);
@@ -79,6 +79,7 @@ export const TextWrap = styled.div<{ letter: string }>`
 
 export const Text = styled.p`
   white-space: pre-wrap;
-  font-family: "EF_jejudoldam";
+  font-family: 'EF_jejudoldam';
   text-align: center;
+  font-size: 21px;
 `;
