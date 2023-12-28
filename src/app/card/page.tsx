@@ -36,13 +36,11 @@ const Card = () => {
 
 
   const testRef = useRef<HTMLDivElement>(null);
-  console.log(testRef);
+
   const onClickDownload = useCallback(async () => {
     if (testRef.current) {
       const imageData = await toJpeg(testRef.current);
-
-      downloadjs(await toJpeg(testRef.current), "test.jpg");
-
+      downloadjs(await toJpeg(testRef.current), "new_year_card.jpg");
     }
   }, []);
 
