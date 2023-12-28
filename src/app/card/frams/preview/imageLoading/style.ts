@@ -5,11 +5,12 @@ import styled from '@emotion/styled';
 export const Loading = styled.div`
   position: absolute;
   top: 208px;
-  left: 36px;
+  left: 50%;
+  transform: translate(-50%);
 `;
 
 export const LoadingText = styled.div`
-  width: 178px;
+  width: 200px;
   white-space: nowrap;
   color: white;
   font-weight: 200;

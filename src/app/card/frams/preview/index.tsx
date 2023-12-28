@@ -25,7 +25,9 @@ const Preview = ({
       {!isEnd && <S.PreviewInfo>미리보기</S.PreviewInfo>}
       <S.Year>2024</S.Year>
       <S.ImageWrap>
-        {isSend && <ImageLoading loadingStep={loadingStep} />}
+        {isSend &&
+          <ImageLoading loadingStep={loadingStep} />
+        }
         <Image
           src={image ? image : "/previewImage.svg"}
           alt="previewImage"
