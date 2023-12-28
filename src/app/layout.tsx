@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import Head from 'next/head';
 
 export const metadata: Metadata = {
-  title: '신년카드',
+  title: 'AI 신년카드 만들기',
   description: '나만의 신년카드 만들기',
 };
 
