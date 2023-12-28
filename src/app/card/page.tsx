@@ -4,14 +4,12 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Preview from "./frams/preview";
 import MakeSide from "./frams/makeContents";
 import Inner from "@components/components/inner";
-import domtoimage from 'dom-to-image';
-import { saveAs } from 'file-saver';
 import CongratsLottie from "@components/lib/lottie/congrats";
 import Button from "@components/components/button";
-import * as S from "./style";
 import downloadjs from "downloadjs";
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 import Share from "@components/components/share";
+import * as S from "./style";
 
 const Card = () => {
   const [prompt, setPromt] = useState({
@@ -42,6 +40,8 @@ const Card = () => {
       // const imageData = await toJpeg(testRef.current);
       const saveConfirm = window.confirm('이미지를 저장하시겠습니까?');
       if (saveConfirm === true) {
+        await toJpeg(testRef.current);
+        await toJpeg(testRef.current);
         downloadjs(await toJpeg(testRef.current), "new_year_card.jpg");
       }
     }
@@ -112,7 +112,7 @@ const Card = () => {
               >
                 다운로드 하기
               </Button>
-              <Share shareData={shareData}>
+              <Share shareData={shareData} testRef={testRef}>
                 {/* 카톡 공유로 변경 */}
                 <Button
                   // onClick={onClickCreateShareImage}

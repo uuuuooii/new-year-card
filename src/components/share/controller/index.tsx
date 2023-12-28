@@ -1,5 +1,5 @@
 import React from 'react';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+import { toJpeg } from 'html-to-image';
 
 interface ControllerProps {
   children: React.ReactNode;
@@ -9,6 +9,7 @@ interface ControllerProps {
   onNonNativeShare?: () => void;
   onInteraction?: () => void;
   disabled?: boolean;
+  testRef: React.RefObject<HTMLDivElement>;
 }
 
 const Controller = ({
@@ -19,20 +20,8 @@ const Controller = ({
   onError,
   onNonNativeShare,
   disabled,
+  testRef
 }: ControllerProps) => {
-  const handleOnClick = async () => {
-    onInteraction?.();
-    if (navigator?.share) {
-      try {
-        await navigator.share(shareData);
-        onSuccess?.();
-      } catch (err) {
-        onError?.(err);
-      }
-    } else {
-      onNonNativeShare?.();
-    }
-  };
 
   const dataURLtoFile = (dataurl: string, filename: string) => {
     let arr = dataurl.split(",");
@@ -67,17 +56,15 @@ const Controller = ({
   };
 
 
-  const onClickCreateShareImage = () => {
-    const downloadImgElement = document.querySelector("#downloadImg");
-    if (!downloadImgElement) {
-      console.error("Element with ID 'downloadImg' not found");
-      return;
+  const onClickCreateShareImage = async () => {
+    if (testRef.current) {
+      await toJpeg(testRef.current);
+      await toJpeg(testRef.current);
+      await toJpeg(testRef.current, { quality: 0.95 }).then((dataUrl) => {
+        const file = dataURLtoFile(dataUrl, "new_year_card.png");
+        shareFile(file, "Title", "https://new-year-card-silk.vercel.app/");
+      });
     }
-
-    toJpeg(downloadImgElement as HTMLElement, { quality: 0.95 }).then((dataUrl) => {
-      const file = dataURLtoFile(dataUrl, "new_year_card.png");
-      shareFile(file, "Title", "https://new-year-card-silk.vercel.app/");
-    });
   };
   return (
     <button

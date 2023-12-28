@@ -11,6 +11,7 @@ interface ShareProps {
   onError?: (error?: unknown) => void;
   onInteraction?: () => void;
   disabled?: boolean;
+  testRef: React.RefObject<HTMLDivElement>;
 }
 
 const Share = ({
@@ -19,7 +20,8 @@ const Share = ({
   onInteraction,
   onSuccess,
   onError,
-  disabled
+  disabled,
+  testRef
 }: ShareProps) => {
   const [openPopup, setOpenPopup] = useState(false);
 
@@ -36,6 +38,7 @@ const Share = ({
         onError={onError}
         onNonNativeShare={handleNonNativeShare}
         disabled={disabled}
+        testRef={testRef}
       >
         {children}
       </Controller>
