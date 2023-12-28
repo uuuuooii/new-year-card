@@ -8,7 +8,7 @@ export const ButtonStyle = styled.button<{ isClick: boolean }>`
   width: 100%;
   height: 50px;
   padding: 0 20px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   background: #f8f8f8;
   border: ${({ isClick }) => isClick && '1px solid #4d100f'};
   border-radius: 10px;
