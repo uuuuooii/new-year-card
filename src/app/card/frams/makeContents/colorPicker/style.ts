@@ -1,10 +1,15 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import mediaQuery from '@components/lib/styles/theme/mediaQuery';
 
 export const Wrap = styled.div`
   display: flex;
   justify-content: center;
   gap: 20px;
   padding: 85px 0 109px;
+
+  ${mediaQuery.tablet} {
+    padding: 31px 0 56px;
+  }
 `;
 
 export const ColorPickerWrap = styled.div`

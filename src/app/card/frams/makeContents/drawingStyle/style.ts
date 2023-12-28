@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import mediaQuery from '@components/lib/styles/theme/mediaQuery';
 
 export const List = styled.ul`
   display: grid;
@@ -7,6 +8,10 @@ export const List = styled.ul`
   justify-content: center;
   align-items: center;
   padding: 35px 0;
+
+  ${mediaQuery.tablet} {
+    padding: 24px 0;
+  }
 `;
 
 export const Item = styled.li<{ isArtist: boolean }>`
@@ -16,7 +21,7 @@ export const Item = styled.li<{ isArtist: boolean }>`
   width: 100%;
   height: 50px;
   background: #f8f8f8;
-  border: ${({ isArtist }) => isArtist && "1px solid #4d100f"};
+  border: ${({ isArtist }) => isArtist && '1px solid #4d100f'};
   border-radius: 10px;
   cursor: pointer;
 `;
