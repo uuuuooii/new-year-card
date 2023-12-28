@@ -59,6 +59,7 @@ export const Desc = styled.div`
   text-align: center;
   gap: 35px;
   padding: 38px 0 0;
+  margin-top: 10px;
 `;
 
 export const Line = styled.div`
