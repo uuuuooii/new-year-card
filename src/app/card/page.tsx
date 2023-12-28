@@ -31,7 +31,7 @@ const Card = () => {
   const shareData = {
     title: "신년카드 만들기",
     text: "신년카드",
-    url: "https://new-year-card-g1patgw11-uuuuooii.vercel.app/"
+    url: "https://new-year-card-silk.vercel.app/"
   };
 
 
@@ -39,8 +39,11 @@ const Card = () => {
 
   const onClickDownload = useCallback(async () => {
     if (testRef.current) {
-      const imageData = await toJpeg(testRef.current);
-      downloadjs(await toJpeg(testRef.current), "new_year_card.jpg");
+      // const imageData = await toJpeg(testRef.current);
+      const saveConfirm = window.confirm('이미지를 저장하시겠습니까?');
+      if (saveConfirm === true) {
+        downloadjs(await toJpeg(testRef.current), "new_year_card.jpg");
+      }
     }
   }, []);
 
