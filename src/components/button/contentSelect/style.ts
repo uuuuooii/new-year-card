@@ -7,6 +7,7 @@ export const ButtonStyle = styled.button<{ isClick: boolean }>`
   justify-content: center;
   gap: 10px;
   width: 100%;
+  min-width: 130px;
   height: 50px;
   padding: 0 20px;
   font-size: 0.9rem;
