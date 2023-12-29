@@ -59,7 +59,6 @@ const Controller = ({
   const onClickCreateShareImage = async () => {
     if (testRef.current) {
       await toJpeg(testRef.current);
-      await toJpeg(testRef.current);
       await toJpeg(testRef.current, { quality: 0.95 }).then((dataUrl) => {
         const file = dataURLtoFile(dataUrl, "new_year_card.png");
         shareFile(file, "Title", "https://new-year-card-silk.vercel.app/");

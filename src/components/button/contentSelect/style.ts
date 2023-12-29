@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ButtonStyle = styled.button<{ isClick: boolean }>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;

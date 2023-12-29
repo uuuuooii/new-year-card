@@ -35,7 +35,7 @@ const Card = () => {
 
   const testRef = useRef<HTMLDivElement>(null);
 
-  const onClickDownload = useCallback(async () => {
+  const onClickDownload = async () => {
     if (testRef.current) {
       // const imageData = await toJpeg(testRef.current);
       const saveConfirm = window.confirm('이미지를 저장하시겠습니까?');
@@ -45,7 +45,7 @@ const Card = () => {
         downloadjs(await toJpeg(testRef.current), "new_year_card.jpg");
       }
     }
-  }, []);
+  };
 
 
   useEffect(() => {

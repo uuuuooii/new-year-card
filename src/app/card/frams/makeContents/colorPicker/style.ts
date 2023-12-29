@@ -39,8 +39,10 @@ export const Content = styled.div`
 `;
 
 export const ColorPreview = styled.div<{ colorPicker: string }>`
-  width: 25px;
-  height: 25px;
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  height: 20px;
   background: ${({ colorPicker }) => colorPicker && colorPicker};
   border-radius: 50%;
 `;
