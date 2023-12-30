@@ -36,7 +36,7 @@ const ColorPicker = ({
     }));
   }, [colorPicker]);
 
-  console.log(color);
+
   return (
     <S.Wrap>
       <S.ColorPickerWrap>

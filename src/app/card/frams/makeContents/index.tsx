@@ -5,8 +5,8 @@ import ColorPicker from "./colorPicker";
 import KeyWord from "./keyword";
 import DrawingStyle from "./drawingStyle";
 import Letter from "./letter";
-import * as S from "./style";
 import Button from "@components/components/button";
+import * as S from "./style";
 
 interface MakeSideProps {
   prompt: {
