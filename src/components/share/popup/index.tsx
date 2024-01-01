@@ -42,7 +42,6 @@ const Popup = ({
           {shareData.title}
         </h3>
         <button onClick={onClose}>
-          {/* <span>Close Share</span> */}
           <div aria-hidden="true">
             <svg
               xmlns="http://www.w3.org/2000/svg"
