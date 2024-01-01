@@ -1,0 +1,30 @@
+{
+  "short_name": "AI 신년카드 만들기",
+  "name": "AI 신년카드 만들기",
+  "icons": [
+    {
+      "src": "logo70.png",
+      "type": "image/png",
+      "sizes": "70x70"
+    },
+    {
+      "src": "logo144.png",
+      "type": "image/png",
+      "sizes": "150x150"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "logo600.png",
+      "type": "image/png",
+      "sizes": "1024x1024"
+    }
+  ],
+  "start_url": ".",
+  "display": "fullscreen",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
