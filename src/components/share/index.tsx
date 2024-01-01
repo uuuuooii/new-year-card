@@ -32,10 +32,6 @@ const Share = ({
 
     <div>
       <Controller
-        shareData={shareData}
-        onInteraction={onInteraction}
-        onSuccess={onSuccess}
-        onError={onError}
         onNonNativeShare={handleNonNativeShare}
         disabled={disabled}
         testRef={testRef}
