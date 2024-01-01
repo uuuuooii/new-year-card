@@ -37,26 +37,21 @@ const Card = () => {
 
   const onClickDownload = async () => {
     if (testRef.current) {
-      // const imageData = await toJpeg(testRef.current);
+      await toJpeg(testRef.current);
+      await toJpeg(testRef.current);
+      const imageAsJpeg = await toJpeg(testRef.current);
       const saveConfirm = window.confirm('이미지를 저장하시겠습니까?');
       if (saveConfirm === true) {
-        await toJpeg(testRef.current);
-        await toJpeg(testRef.current);
-        downloadjs(await toJpeg(testRef.current), "new_year_card.jpg");
+        downloadjs(imageAsJpeg, "new_year_card.jpg");
       }
     }
   };
 
 
   useEffect(() => {
-    // const timeoutId = setTimeout(() => {
     if (loadingStep === 3) {
       setIsShowLottie(true);
     }
-    // }, 1000);
-
-    // 컴포넌트가 언마운트되면 타이머를 해제하여 메모리 누수를 방지;
-    // return () => clearTimeout(timeoutId);
   }, [loadingStep]);
 
   // 새로고침 막기 변수
