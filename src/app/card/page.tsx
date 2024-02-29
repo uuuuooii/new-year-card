@@ -8,7 +8,6 @@ import CongratsLottie from "@components/lib/lottie/congrats";
 import Button from "@components/components/button";
 import downloadjs from "downloadjs";
 import { toJpeg } from 'html-to-image';
-import Share from "@components/components/share";
 import * as S from "./style";
 
 const Card = () => {
@@ -25,13 +24,6 @@ const Card = () => {
   const [isSend, setIsSend] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
   const [isShowLottie, setIsShowLottie] = useState(false);
-
-  const shareData = {
-    title: "신년카드 만들기",
-    text: "신년카드",
-    url: "https://new-year-card-silk.vercel.app/"
-  };
-
 
   const testRef = useRef<HTMLDivElement>(null);
 
@@ -107,18 +99,6 @@ const Card = () => {
               >
                 다운로드 하기
               </Button>
-              <Share shareData={shareData} testRef={testRef}>
-                {/* 카톡 공유로 변경 */}
-                <Button
-                  // onClick={onClickCreateShareImage}
-                  size="medium"
-                  state="normal"
-                  colorType="black"
-                >
-                  공유하기
-                </Button>
-
-              </Share>
             </S.ButtonWrap>
           )}
 

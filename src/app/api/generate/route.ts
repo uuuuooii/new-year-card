@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     '메인 컬러는' +
     content.color +
     content.keyword;
-  console.log(promp);
+
   try {
     const response = await openai.images.generate({
       model: 'dall-e-3',
@@ -26,7 +26,6 @@ export async function POST(req: NextRequest) {
       size: '1024x1024',
     });
 
-    console.log(response);
     return new NextResponse(JSON.stringify(response), { status: 200 });
   } catch (err) {
     console.log(err);

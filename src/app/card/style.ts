@@ -58,5 +58,5 @@ export const LottieWrap = styled.div`
 export const ButtonWrap = styled.div`
   padding-top: 45px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `;
