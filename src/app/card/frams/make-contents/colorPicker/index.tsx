@@ -3,21 +3,25 @@
 import React, { useEffect } from "react";
 import { HexColorPicker } from "react-colorful";
 import { PromtProps } from "../type";
-import ContentSelectButton from "@components/components/button/contentSelect";
+import ContentSelectButton from "@components/components/design/button/contentSelect";
 import * as S from "./style";
+
+// _ 스네이크
+// - 케밥
 
 interface ColorPickerProps extends PromtProps {
   color: string;
   colorPicker: string;
   setColorPicker: React.Dispatch<React.SetStateAction<string>>;
 }
-
+// TODO(은혜): 네이밍 개선 (colorPicker,color)
 const ColorPicker = ({
   color,
   setPromt,
   colorPicker,
   setColorPicker,
 }: ColorPickerProps) => {
+
   const onClickColor = (item: string) => {
     setPromt((prev) => ({
       color: item,
@@ -26,6 +30,8 @@ const ColorPicker = ({
       letter: prev.letter,
     }));
   };
+
+  const 색상 = '';
 
   useEffect(() => {
     setPromt((prev) => ({
@@ -50,6 +56,7 @@ const ColorPicker = ({
           </ContentSelectButton>
         </div>
         <div onClick={() => onClickColor("없음")}>
+          {/* 어떤 color 인지?, 무조건 컬러 값으로 */}
           <ContentSelectButton isClick={color === "없음"}>
             없음
           </ContentSelectButton>

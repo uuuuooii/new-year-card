@@ -2,15 +2,18 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Preview from "./frams/preview";
-import MakeSide from "./frams/makeContents";
-import Inner from "@components/components/inner";
+import MakeSide from "./frams/make-contents";
+import Inner from "@components/components/design/inner";
 import CongratsLottie from "@components/lib/lottie/congrats";
-import Button from "@components/components/button";
+import Button from "@components/components/design/button";
 import downloadjs from "downloadjs";
 import { toJpeg } from 'html-to-image';
 import * as S from "./style";
 
+
+// 사전에 state 깊이 정함
 const Card = () => {
+  // aiRequestValue
   const [prompt, setPromt] = useState({
     color: "",
     drawingStyle: "반 고흐",
@@ -24,6 +27,7 @@ const Card = () => {
   const [isSend, setIsSend] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
   const [isShowLottie, setIsShowLottie] = useState(false);
+  // const step: '1' | '2';
 
   const testRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +56,7 @@ const Card = () => {
     e.returnValue = ""; // chrome에서는 설정이 필요해서 넣은 코드
   };
 
+  // 마운트 훅
   useEffect(() => {
     (() => {
       window.addEventListener("beforeunload", preventClose);

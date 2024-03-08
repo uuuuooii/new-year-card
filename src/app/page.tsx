@@ -1,6 +1,6 @@
 "use client";
 
-import Inner from "@components/components/inner";
+import Inner from "@components/components/design/inner";
 import Image from "next/image";
 import Link from "next/link";
 import * as S from './style';

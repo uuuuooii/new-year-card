@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { PromtProps } from "../type";
-import Textarea from "@components/components/textarea";
+import Textarea from "@components/components/design/textarea";
 import { WrapLetter } from "./style";
 
 interface LetterProps extends PromtProps {

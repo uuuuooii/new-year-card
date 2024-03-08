@@ -1,7 +1,7 @@
 import React from "react";
 import artistData from "./data";
 import { PromtProps } from "../type";
-import ContentSelectButton from "@components/components/button/contentSelect";
+import ContentSelectButton from "@components/components/design/button/contentSelect";
 import * as S from "./style";
 
 interface DrawingStyleProps extends PromtProps {

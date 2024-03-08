@@ -5,8 +5,9 @@ import ColorPicker from "./colorPicker";
 import KeyWord from "./keyword";
 import DrawingStyle from "./drawingStyle";
 import Letter from "./letter";
-import Button from "@components/components/button";
+import Button from "@components/components/design/button";
 import * as S from "./style";
+
 
 interface MakeSideProps {
   prompt: {
@@ -33,6 +34,8 @@ interface MakeSideProps {
   isEnd: boolean;
 }
 
+const nums = [1, 2, 3, 4];
+
 const MakeSide = ({
   prompt,
   setPromt,
@@ -44,7 +47,6 @@ const MakeSide = ({
   setIsEnd,
   isEnd,
 }: MakeSideProps) => {
-  const Num = [1, 2, 3, 4];
   const [pageNumber, setPageNumber] = useState(1);
 
   const onClickNext = () => {
@@ -95,6 +97,8 @@ const MakeSide = ({
 
   const { color, drawingStyle, keyword, letter } = prompt;
 
+  // selectSection & sectionTitle 같이 연동
+  // 호출을 lazy하게 지금은 미리 호출됨 
   const selectSection: { [key: number]: React.JSX.Element; } = {
     1: <DrawingStyle drawingStyle={drawingStyle} setPromt={setPromt} />,
     2: (
@@ -119,7 +123,7 @@ const MakeSide = ({
   return (
     <S.Section isEnd={isEnd} id='downloadImg'>
       <S.NumberList>
-        {Num.map((item) => (
+        {nums.map((item) => (
           <S.NumberItem isPageNumber={pageNumber === item} key={item}>
             {item}
           </S.NumberItem>

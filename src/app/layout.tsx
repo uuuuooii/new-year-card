@@ -1,4 +1,4 @@
-import Footer from '@components/components/footer';
+import Footer from '@components/components/design/footer';
 import EmotionProvider from '@components/lib/provider/emotion';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
