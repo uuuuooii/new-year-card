@@ -13,7 +13,7 @@ import * as S from "./style";
 
 // 사전에 state 깊이 정함
 const Card = () => {
-  // aiRequestValue
+  // TODO: 변수명 수정 aiRequestValue
   const [prompt, setPromt] = useState({
     color: "",
     drawingStyle: "반 고흐",
@@ -27,7 +27,7 @@ const Card = () => {
   const [isSend, setIsSend] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
   const [isShowLottie, setIsShowLottie] = useState(false);
-  // const step: '1' | '2';
+  // TODO: const step: '1' | '2';
 
   const testRef = useRef<HTMLDivElement>(null);
 

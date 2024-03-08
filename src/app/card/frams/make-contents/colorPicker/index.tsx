@@ -8,7 +8,6 @@ import * as S from "./style";
 
 // _ 스네이크
 // - 케밥
-
 interface ColorPickerProps extends PromtProps {
   color: string;
   colorPicker: string;
