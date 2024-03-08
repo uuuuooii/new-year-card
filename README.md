@@ -26,7 +26,3 @@ Next.js, Typescript, Emotion
 </br> 로 해결할 수 있었다.
 </br>
 [자세한 내용](https://velog.io/@uuuuooii/Next.js-Vercel-504-GATEWAYTIMEOUT-%EC%97%90%EB%9F%AC%ED%95%B4%EA%B2%B0)
-
-## 앞으로 과제
-
-공유 기능을 개발 중에 Web Share API를 사용했지만 크롬에서는 해당 기능을 지원하지 않아 이미지 대신 링크로 공유하고 있다. 이 문제를 해결하기 위해 추가적인 조치를 취하려고 한다. 현재 관련 정보를 찾아보고 있으며, 해결 방안을 찾으면 더 자세한 내용을 공유하겠다.
