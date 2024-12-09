@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Preview from "./frams/preview";
 import MakeSide from "./frams/make-contents";
 import Inner from "@components/components/design/inner";
@@ -16,7 +16,7 @@ const Card = () => {
   // TODO: 변수명 수정 aiRequestValue
   const [prompt, setPromt] = useState({
     color: "",
-    drawingStyle: "반 고흐",
+    drawingStyle: "Van Gogh",
     keyword: "",
     letter: "",
   });
@@ -33,12 +33,14 @@ const Card = () => {
 
   const onClickDownload = async () => {
     if (testRef.current) {
-      await toJpeg(testRef.current);
-      await toJpeg(testRef.current);
-      const imageAsJpeg = await toJpeg(testRef.current);
-      const saveConfirm = window.confirm('이미지를 저장하시겠습니까?');
+
+      const imageAsJpeg = await toJpeg(testRef.current, {
+        cacheBust: true,
+      });
+
+      const saveConfirm = window.confirm('Would you like to save the image?');
       if (saveConfirm === true) {
-        downloadjs(imageAsJpeg, "new_year_card.jpg");
+        downloadjs(imageAsJpeg, "new_year_card.webp");
       }
     }
   };
@@ -102,7 +104,7 @@ const Card = () => {
                 state="normal"
                 colorType="white"
               >
-                다운로드 하기
+                Download
               </Button>
             </S.ButtonWrap>
           )}
@@ -114,9 +116,6 @@ const Card = () => {
           <CongratsLottie />
         </S.LottieWrap>
       )}
-
-
-
     </main>
   );
 };

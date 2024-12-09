@@ -9,15 +9,13 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
   width: 368px;
+  height: 547px;
   padding: 45px;
-  background-color: #f8f8f8;
   overflow: hidden;
+  background-color: #eaeaea;
 
   ${mediaQuery.tablet} {
-    display: unset;
     width: 100%;
-    max-width: unset;
-    min-width: unset;
   }
 `;
 
@@ -32,22 +30,28 @@ export const PreviewInfo = styled.div`
   border-radius: 10px;
   background: #f1cccc;
   color: #551a1a;
+  z-index: 1;
 `;
 
 export const Year = styled.p`
-  color: #4d100f;
   font-family: 'KOTRA_BOLD-Bold';
   font-size: 4.375rem;
   font-weight: 900;
   text-align: center;
+  color: ${({ theme }) => theme.color.white};
+  -webkit-text-stroke: 1px ${({ theme }) => theme.color.brown};
+  z-index: 1;
 `;
 
 export const ImageWrap = styled.picture`
-  position: relative;
+  position: absolute;
   display: block;
   text-align: center;
+
   img {
-    height: auto;
+    width: 100%;
+    height: 547px;
+    object-fit: cover;
   }
 `;
 
@@ -65,7 +69,8 @@ export const Desc = styled.div`
 export const Line = styled.div`
   display: grid;
   width: 250px;
-  border-bottom: 1px solid #4d100f;
+  border-bottom: 1px solid ${({ theme }) => theme.color.white};
+  z-index: 1;
 `;
 
 export const TextWrap = styled.div<{ letter: string }>`
@@ -76,11 +81,28 @@ export const TextWrap = styled.div<{ letter: string }>`
   transform: translate(-50%);
   line-height: 1.7;
   word-wrap: break-word;
+  z-index: 1;
 `;
 
 export const Text = styled.p`
   white-space: pre-wrap;
-  font-family: 'EF_jejudoldam';
+  font-family: 'KOTRA_BOLD-Bold';
   text-align: center;
   font-size: 21px;
+  color: ${({ theme }) => theme.color.white};
+  -webkit-text-stroke: 1px ${({ theme }) => theme.color.brown};
+`;
+
+export const Gradient = styled.div`
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.9)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 770.59px;
+  width: 100%;
 `;

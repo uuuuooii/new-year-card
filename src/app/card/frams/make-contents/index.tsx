@@ -85,7 +85,7 @@ const MakeSide = ({
         setTimeout(() => {
           setIsSend(false);
           setLoadingStep(3);
-        }, 2500);
+        }, 3000);
       } else {
         alert("Error sending message");
         return;
@@ -114,10 +114,10 @@ const MakeSide = ({
   };
 
   const sectionTitle: { [key: number]: string; } = {
-    1: "이미지의 그림체를 선택해주세요",
-    2: "이미지의 메인 컬러를 선택해주세요",
-    3: "원하는 이미지의 키워드를 작성해주세요",
-    4: "편지 내용을 작성해주세요",
+    1: "Please select the art style for the image",
+    2: "Please select the main color for the image",
+    3: "Please write the keywords for the desired image",
+    4: "Please write the content of the letter",
   };
 
   return (
@@ -141,7 +141,7 @@ const MakeSide = ({
             state="normal"
             colorType="white"
           >
-            뒤로
+            Back
           </Button>
         )}
         {pageNumber < 4 && (
@@ -151,14 +151,14 @@ const MakeSide = ({
             state="normal"
             colorType="black"
           >
-            다음
+            Next
           </Button>
         )}
 
         {pageNumber === 4 && (
           <form onSubmit={handleSubmit}>
             <Button size="small" state="normal" colorType="brown">
-              완료
+              Done
             </Button>
           </form>
         )}

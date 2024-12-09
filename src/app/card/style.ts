@@ -9,7 +9,6 @@ export const Container = styled.div<{ isEnd: boolean }>`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  padding: 100px 0;
 
   ${mediaQuery.tablet} {
     ${({ isEnd }) =>
@@ -17,7 +16,6 @@ export const Container = styled.div<{ isEnd: boolean }>`
       css`
         display: block;
         height: 100%;
-        padding: 0;
       `}
   }
 `;

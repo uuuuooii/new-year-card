@@ -23,7 +23,7 @@ const KeyWord = ({ keyword, setPromt }: KeyWordProps) => {
         onChangeInput={onChangeInput}
         maxLength={20}
         heigthValue={95}
-        placeholder={"키워드를 입력해주세요 ex)크리스마스"}
+        placeholder={"Please enter keywords, e.g., Christmas."}
       />
     </Wrap>
   );

@@ -1,35 +1,35 @@
 const artistData = [
   {
     id: 1,
-    artist: '반 고흐',
+    artist: 'Van Gogh',
   },
   {
     id: 2,
-    artist: '키스 해링',
+    artist: 'Keith Haring',
   },
   {
     id: 3,
-    artist: '피카소',
+    artist: 'Picasso',
   },
   {
     id: 4,
-    artist: '구사마 야요이',
+    artist: 'Yayoi Kusama',
   },
   {
     id: 5,
-    artist: '앤디 워홀',
+    artist: 'Andy Warhol',
   },
   {
     id: 6,
-    artist: '앙리 마티스',
+    artist: 'Henri Matisse',
   },
   {
     id: 7,
-    artist: 'AI 추천',
+    artist: 'AI Recommendation',
   },
   {
     id: 8,
-    artist: '없음',
+    artist: 'None',
   },
 ];
 

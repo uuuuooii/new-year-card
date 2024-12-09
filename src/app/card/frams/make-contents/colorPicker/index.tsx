@@ -54,10 +54,10 @@ const ColorPicker = ({
             <p>{colorPicker}</p>
           </ContentSelectButton>
         </div>
-        <div onClick={() => onClickColor("없음")}>
+        <div onClick={() => onClickColor("None")}>
           {/* 어떤 color 인지?, 무조건 컬러 값으로 */}
-          <ContentSelectButton isClick={color === "없음"}>
-            없음
+          <ContentSelectButton isClick={color === "None"}>
+            None
           </ContentSelectButton>
         </div>
       </S.ColorContent>

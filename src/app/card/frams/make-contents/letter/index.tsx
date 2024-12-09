@@ -23,7 +23,7 @@ const Letter = ({ letter, setPromt }: LetterProps) => {
         onChangeInput={onChangeInput}
         maxLength={32}
         heigthValue={107}
-        placeholder="내용을 작성해주세요"
+        placeholder="Please write the content"
       />
     </WrapLetter>
   );

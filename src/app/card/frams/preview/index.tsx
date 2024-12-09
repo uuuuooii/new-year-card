@@ -20,19 +20,22 @@ const Preview = ({
   isEnd,
   testRef
 }: PreviewProps) => {
+
   return (
-    <S.Section id="downloadImg" ref={testRef}>
-      {!isEnd && <S.PreviewInfo>미리보기</S.PreviewInfo>}
-      <S.Year>2024</S.Year>
+    <S.Section id="downloadImg" ref={testRef} >
+      {!isEnd && <S.PreviewInfo>Preview</S.PreviewInfo>}
+      <S.Year>2025</S.Year>
+
+      {isSend &&
+        <ImageLoading loadingStep={loadingStep} />
+      }
+
       <S.ImageWrap>
-        {isSend &&
-          <ImageLoading loadingStep={loadingStep} />
-        }
         <Image
           src={image ? image : "/previewImage.svg"}
           alt="previewImage"
-          width={250}
-          height={300}
+          width={340}
+          height={547}
         ></Image>
       </S.ImageWrap>
 
@@ -42,16 +45,16 @@ const Preview = ({
             <S.Text>{letter}</S.Text>
           ) : (
             <>
-              <S.Text>2024년도 같이</S.Text>
-              <S.Text> 재밌게 지내자</S.Text>
-              <S.Text> 젲젷젶줓젴줗</S.Text>
+              <S.Text>Let&apos;s have fun</S.Text>
+              <S.Text>together in 2025!</S.Text>
             </>
           )}
         </S.TextWrap>
         <S.Line />
         <S.Line />
-        <S.Line />
+
       </S.Desc>
+      <S.Gradient />
     </S.Section>
   );
 };

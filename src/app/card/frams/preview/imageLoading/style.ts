@@ -4,9 +4,10 @@ import styled from '@emotion/styled';
 
 export const Loading = styled.div`
   position: absolute;
-  top: 208px;
+  top: 260px;
   left: 50%;
   transform: translate(-50%);
+  z-index: 1;
 `;
 
 export const LoadingText = styled.div`

@@ -55,9 +55,9 @@ export const Text = styled.p`
   color: white;
   font-weight: 600;
   border-radius: 8px;
-  background: #de1911;
+  background: #a61212;
 
   &:hover {
-    background: green;
+    background: #882727;
   }
 `;
