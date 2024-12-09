@@ -5,8 +5,15 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   manifest: '/manifest.json',
-  title: 'AI 신년카드 만들기',
-  description: '나만의 신년카드 만들기',
+  title: `Create AI New Year's Cards`,
+  description: `Make Your Own Personalized New Year's Cards`,
+  openGraph: {
+    title: `Create AI New Year's Cards`,
+    description: `Make Your Own Personalized New Year's Cards`,
+    images: {
+      url: 'https://new-year-card-silk.vercel.app/_next/image?url=%2Fmain.png&w=1920&q=75',
+    },
+  }
 };
 
 export default function RootLayout({
