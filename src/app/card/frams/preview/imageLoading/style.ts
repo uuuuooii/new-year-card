@@ -11,7 +11,7 @@ export const Loading = styled.div`
 `;
 
 export const LoadingText = styled.div`
-  width: 200px;
+  width: 220px;
   white-space: nowrap;
   color: white;
   font-weight: 200;
@@ -19,7 +19,7 @@ export const LoadingText = styled.div`
   overflow: hidden;
   border-right: 3px solid;
   animation: typing 2s steps(22), blink 0.5s step-end infinite alternate;
-
+  text-align: center;
   @keyframes typing {
     from {
       width: 0;
