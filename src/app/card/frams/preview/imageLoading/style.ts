@@ -11,7 +11,7 @@ export const Loading = styled.div`
 `;
 
 export const LoadingText = styled.div`
-  width: 230px;
+  width: 250px;
   white-space: nowrap;
   color: white;
   font-weight: 200;
