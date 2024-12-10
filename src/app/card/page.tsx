@@ -34,7 +34,6 @@ const Card = () => {
   const onClickDownload = async () => {
     if (testRef.current) {
       await toJpeg(testRef.current);
-      await toJpeg(testRef.current);
 
       const imageAsJpeg = await toJpeg(testRef.current, {
         cacheBust: true,

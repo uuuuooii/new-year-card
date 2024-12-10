@@ -16,7 +16,7 @@ export default function Home() {
               Gift a unique and special New Year&apos;s card to your friends or loved ones!
             </S.SubTitle>
             <S.ImageWrap>
-              <Image src='/main.png' alt="image" width={657} height={343} />
+              <Image src='/main.png' alt="image" width={657} height={343} priority />
             </S.ImageWrap>
 
             <Link href='/card'>
